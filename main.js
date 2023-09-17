@@ -4,7 +4,7 @@ const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerH
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
 renderer.setClearColor(0x808080, 1);
-document.body.appendChild(renderer.domElement);
+document.querySelector('.canvas-container').appendChild(renderer.domElement);
 
 // Create a cube
 const cubeGeometry = new THREE.BoxGeometry();
@@ -112,6 +112,66 @@ document.addEventListener('touchmove', (event) => {
         touchStartDistance = touchEndDistance;
     }
 });
+// Handle the lighting buttons
+const ambientLightButton = document.getElementById('ambientLightButton');
+const directionalLightButton = document.getElementById('directionalLightButton');
+const pointLightButton = document.getElementById('pointLightButton');
+const spotLightButton = document.getElementById('spotLightButton');
+const hemisphereLightButton = document.getElementById('hemisphereLightButton');
+
+let ambientLightEnabled = true;
+let directionalLightEnabled = true;
+let pointLightEnabled = true;
+let spotLightEnabled = true;
+let hemisphereLightEnabled = true;
+
+ambientLightButton.addEventListener('click', () => {
+    ambientLightEnabled = !ambientLightEnabled;
+    if (ambientLightEnabled) {
+        scene.add(ambientLight);
+    } else {
+        scene.remove(ambientLight);
+    }
+});
+
+directionalLightButton.addEventListener('click', () => {
+    directionalLightEnabled = !directionalLightEnabled;
+    if (directionalLightEnabled) {
+        scene.add(directionalLight);
+    } else {
+        scene.remove(directionalLight);
+    }
+});
+
+pointLightButton.addEventListener('click', () => {
+    pointLightEnabled = !pointLightEnabled;
+    if (pointLightEnabled) {
+        scene.add(pointLight);
+    } else {
+        scene.remove(pointLight);
+    }
+});
+
+spotLightButton.addEventListener('click', () => {
+    spotLightEnabled = !spotLightEnabled;
+    if (spotLightEnabled) {
+        scene.add(spotLight);
+        scene.add(spotLight.target);
+    } else {
+        scene.remove(spotLight);
+        scene.remove(spotLight.target);
+    }
+});
+
+hemisphereLightButton.addEventListener('click', () => {
+    hemisphereLightEnabled = !hemisphereLightEnabled;
+    if (hemisphereLightEnabled) {
+        scene.add(hemisphereLight);
+    } else {
+        scene.remove(hemisphereLight);
+    }
+});
+
 
 // Start the animation loop
 animate();

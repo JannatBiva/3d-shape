@@ -4,7 +4,7 @@
     <meta charset="UTF-8">
     <title>Zoomable 3D Shapes Example</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
-
+    <link rel="stylesheet" type="text/css" href="styles.css">
 </head>
 <body>
     <div class="container">
@@ -13,9 +13,15 @@
             <button id="cubeButton" style="margin-right: 10px;">Show Cube</button>
             <button id="triangleButton" style="margin-right: 10px;">Show Triangle</button>
             <button id="zoomInButton" style="margin-right: 10px;">Zoom In</button>
-            <button id="zoomOutButton">Zoom Out</button>
+            <button id="zoomOutButton" style="margin-right: 10px;">Zoom Out</button>
+            <button id="ambientLightButton">Toggle Ambient Light</button>
+            <button id="directionalLightButton">Toggle Directional Light</button>
+            <button id="pointLightButton">Toggle Point Light</button>
+            <button id="spotLightButton">Toggle Spot Light</button>
+            <button id="hemisphereLightButton">Toggle Hemisphere Light</button>
         </div>
     </div>
+    <div class="canvas-container"></div>
     <script src="main.js"></script> 
 </body>
 </html>

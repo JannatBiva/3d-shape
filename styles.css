@@ -1,20 +1,21 @@
 /* styles.css */
 
-body {
-    margin: 0;
-    overflow: hidden; /* Prevents page scrolling */
+/* Styles for the lighting button */
+#ambientLightButton {
+    margin-right: 10px;
 }
 
-.container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh; /* Full viewport height */
+#directionalLightButton {
+    margin-right: 10px;
 }
-h1 {
-    text-align: center; /* Center text horizontally */
+
+#pointLightButton {
+    margin-right: 10px;
 }
-canvas {
-    display: block; /* Ensure the canvas is a block-level element */
+
+#spotLightButton {
+    margin-right: 10px;
+}
+#hemisphereLightButton {
+    margin-right: 10px;
 }
