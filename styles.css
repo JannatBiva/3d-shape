@@ -15,3 +15,6 @@ body {
 h1 {
     text-align: center; /* Center text horizontally */
 }
+canvas {
+    display: block; /* Ensure the canvas is a block-level element */
+}

@@ -3,11 +3,14 @@ const scene = new THREE.Scene();
 const camera = new THREE.PerspectiveCamera(75, window.innerWidth / window.innerHeight, 0.1, 1000);
 const renderer = new THREE.WebGLRenderer();
 renderer.setSize(window.innerWidth, window.innerHeight);
+renderer.setClearColor(0x808080, 1);
 document.body.appendChild(renderer.domElement);
 
 // Create a cube
 const cubeGeometry = new THREE.BoxGeometry();
-const cubeMaterial = new THREE.MeshBasicMaterial({ color: 0x00ff00 });
+const cubeTextureLoader = new THREE.TextureLoader();
+const cubeTexture = cubeTextureLoader.load('cube_texture.jpg'); // Replace with your cube texture path
+const cubeMaterial = new THREE.MeshBasicMaterial({ map: cubeTexture });
 const cube = new THREE.Mesh(cubeGeometry, cubeMaterial);
 cube.visible = true; // Cube is shown by default
 scene.add(cube);
@@ -23,7 +26,9 @@ const extrusionSettings = {
     bevelEnabled: false,
 };
 const triangleGeometry = new THREE.ExtrudeGeometry(triangleShape, extrusionSettings);
-const triangleMaterial = new THREE.MeshBasicMaterial({ color: 0xff0000 });
+const triangleTextureLoader = new THREE.TextureLoader();
+const triangleTexture = triangleTextureLoader.load('triangle_texture.jpg'); // Replace with your triangle texture path
+const triangleMaterial = new THREE.MeshBasicMaterial({ map: triangleTexture });
 const triangle = new THREE.Mesh(triangleGeometry, triangleMaterial);
 triangle.visible = false; // Triangle is hidden by default
 scene.add(triangle);
